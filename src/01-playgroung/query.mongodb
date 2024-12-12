@@ -1,0 +1,4 @@
+use("sample_training") //Base de datos
+
+db.zips.find({state:"NY"}).count() //db es la palabra clave para la cadena de conexion activa, seguido de coleccion y query
+
