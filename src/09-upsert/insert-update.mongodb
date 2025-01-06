@@ -1,0 +1,40 @@
+use("platzi_store")
+
+/*db.iot.insertOne({
+    sensor: "A001",
+    date: "2022-01-03",
+    readings: [1212]
+})*/
+
+/*db.iot.updateOne({
+    sensor: "A001",
+    date: "2022-01-03",
+},
+{
+    $push:{
+        readings: [2323] //Se debe agregar directo sin el []
+    }
+})*/
+
+/*db.iot.updateOne({
+    sensor: "A001",
+    date: "2022-01-03",
+},
+{
+    $pop:{
+        readings: 1
+    }
+})*/
+
+db.iot.updateOne({
+    sensor: "A001",
+    date: "2022-01-03",
+},
+{
+    $push:{
+        readings: 2323 //Se debe agregar directo sin el []
+    }
+})
+
+//Si es la primera lectura del dia se debe hacer un insert, en caso contrario updateOne
+//Para no hacer primero una consulta por ejemplo un .count() mongo tiene "upsert"
