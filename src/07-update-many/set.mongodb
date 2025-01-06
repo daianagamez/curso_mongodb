@@ -1,0 +1,31 @@
+use("sample_training")
+
+/*db.zips.updateMany(
+    {city: "CLEVELAND"},
+    {
+        $set:{
+            myAttr: "hola"
+        }
+    }
+)*/
+
+//Renombrar atributo
+/*db.zips.updateMany(
+    {city:"CLEVELAND"},
+    {
+        $rename:{
+            myAttr: "my_data"
+        }
+    }
+)*/
+
+//Eliminar Atributo
+db.zips.updateMany(
+    {city:"CLEVELAND"},
+    {
+        $unset: {
+            my_data:""
+        }
+    }
+)
+
