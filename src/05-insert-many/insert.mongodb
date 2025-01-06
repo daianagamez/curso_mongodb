@@ -1,0 +1,32 @@
+use("platzi_store")
+
+db.products.drop() //drop borra todos los documentos de una colección
+
+db.products.insertMany([
+    {
+        _id: 1, //Se puede especificar pero no es recomendable
+        name:"Product 1",
+        price: 150
+    },
+    {
+        _id: 2,
+        name:"Product 2",
+        price: 100
+    },
+    {
+        _id: 1, //Si hay una falla desde ese punto no crea mas documentos
+        name:"Product 3",
+        price: 200
+    },
+    {
+        _id: 4 ,
+        name:"Product 4",
+        price: 200
+    }
+],
+{
+    ordered:false  //Instrucción para que si hay errores los salte pero cree los restantes
+}
+)
+
+db.products.find();
