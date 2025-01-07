@@ -1,0 +1,17 @@
+use("platzi_store")
+
+//---Operator $eq----
+//db.inventory.find({qty: 20})
+//Es lo mismo a:
+//db.inventory.find({qty: {$eq: 25}})
+
+//Busquedas en sub-documentos -> atributo de objeto
+//db.inventory.find({"item.code": "123"})
+//Forma explicita
+//db.inventory.find({"item.name": {$eq : "ab"}})
+
+//--Operator $ne --
+db.inventory.find({qty: {$ne:20}}) //En este caso siempre tiene que ser de forma explicita
+
+
+
