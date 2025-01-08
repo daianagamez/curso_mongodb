@@ -1,0 +1,19 @@
+//----$gt (>), $gte (>=)--------
+use("platzi_store")
+
+//db.inventory.find({qty: {$gt : 20}}) //Mayor a 20 -> 2 doc
+//db.inventory.find({qty: {$gte : 20}}) //Mayor o igual a 20 -> 4 doc.
+
+//----Operators $lt (<), $lte (<=) --------
+//db.inventory.find({qty: {$lt : 20}}) //menor a 20 -> 1 doc
+//db.inventory.find({qty: {$lte : 20}}) //menor o igual a 20 -> 3 doc.
+
+
+//------------Operaciones Combinadas: JOIN
+//db.inventory.find({qty: {$lt: 30, $gte:20}})
+//db.inventory.find({qty: {$gte: 25, $lte:35}})
+db.inventory.find({
+    "item.code" : "123", 
+    qty: {$lt: 30, $gte:20}
+})
+
