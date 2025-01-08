@@ -1,0 +1,10 @@
+use("sample_training")
+
+/*db.trips.find({tripduration: { $gte:500}},
+    {tripduration:1, usertype:1} //Projection
+)*/
+
+//el id es el unico que hay que excluir explicitamente:
+db.trips.find({tripduration: { $gte:500}},
+    {tripduration:1, usertype:1, _id:0} //Projection
+)
