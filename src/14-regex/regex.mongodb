@@ -1,0 +1,19 @@
+use("platzi_store")
+
+//db.inventory.find({"item.description": {$regex: /line/}})
+
+//db.inventory.find({"item.description": {$regex: /LINE/}}) //Es sensible a mayusculas por lo tanto no devuelve nada
+
+//Para que tome tanto may. y min:
+//db.inventory.find({"item.description": {$regex: /LINE/i}})
+
+//Para filtar que finalicen con "line"
+//db.inventory.find({"item.description": {$regex: /line$/i}})
+
+//Para que inicie con "single" ^
+//db.inventory.find({"item.description": {$regex:/^single/i}})
+
+//Casos salto de linea
+//db.inventory.find({"item.description": {$regex:/^s/i}}) //Para que incluya el segundo documento:
+
+db.inventory.find({"item.description": {$regex:/^s/im}})
