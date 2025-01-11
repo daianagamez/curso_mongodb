@@ -1,0 +1,25 @@
+use("sample_training")
+
+db.routes.find();
+
+//Vuelos realizados por el avios E70
+db.routes.find({airplane:"E70"}).count()
+
+//Cuantos vuelos pasaron por BOG
+db.routes.find({
+    $or:[
+        {src_airport: "BOG"},
+        {dst_airport:"BOG"}
+    ]
+}).count()
+
+//Union de filtros
+db.routes.find({
+    $and:[
+        {airplane:"E70"},
+        {$or: [
+            {src_airport: "BOG"},
+            {dst_airport:"BOG"}
+        ]}
+    ]
+}).count()
