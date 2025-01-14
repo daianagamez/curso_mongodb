@@ -1,0 +1,16 @@
+use("platzi_store")
+
+db.monthlyBudget.find({spent: {$gte: 100}})
+
+//Operator $expr
+//Esta expresion obtiene el mismo resultado anterior
+db.monthlyBudget.find({$expr:{$gte: ["$spent", 100]}})
+
+//Un caso más interesante para usar otro tributo en vez de cantidad
+db.monthlyBudget.find({
+    $expr:{$gte: ["$spent", "$budget"]}
+})
+
+
+
+
