@@ -1,0 +1,18 @@
+use("sample_training")
+
+//1 para ordenar de forma ascendente => 0-10, A-Z
+//-1 descendente => 10-0, Z-A
+db.zips.find({pop: {$gte: 100}}) //Consulta normal
+
+db.zips.find({pop: {$gte: 100}}).sort({pop: 1}) //Poblacion de forma ascendente
+db.zips.find({pop: {$gte: 100}}).sort({pop: -1}) //Poblacion de mayor a meyor
+
+//Limitar cantidad de documentos que devuelve la consulta
+db.zips.find({pop: {$gte: 100}}).sort({pop: -1}).limit(2)
+
+//Para paginar limit mas skip
+//Skip es escapar o saltar, ejm. spkip 0 empieza con el primer documeto, un skip 2, empieza a tomar del 3er doc.
+//Ejm- Paginar:
+db.zips.find({pop: {$gte: 100}}).sort({pop: -1}).limit(2).skip(0)
+db.zips.find({pop: {$gte: 100}}).sort({pop: -1}).limit(2).skip(2)
+db.zips.find({pop: {$gte: 100}}).sort({pop: -1}).limit(2).skip(4)

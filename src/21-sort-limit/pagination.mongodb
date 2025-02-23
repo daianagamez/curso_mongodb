@@ -1,0 +1,12 @@
+use("platzi_store")
+
+//Pagina 1
+db.categories.find().skip(0).limit(2)
+
+//Pagina 2
+db.categories.find().skip(2).limit(2)
+
+//Pagina 3
+db.categories.find().skip(4).limit(2)
+
+//Asi sucesivamente, el limit es fijo, lo que cambia es skip
